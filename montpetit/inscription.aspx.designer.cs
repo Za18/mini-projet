@@ -33,13 +33,22 @@ namespace montpetit
         protected global::System.Web.UI.WebControls.TextBox Nom;
 
         /// <summary>
-        /// TextBox6 control.
+        /// Adresse control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBox6;
+        protected global::System.Web.UI.WebControls.TextBox Adresse;
+
+        /// <summary>
+        /// DateNaiss control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox DateNaiss;
 
         /// <summary>
         /// Telephone control.

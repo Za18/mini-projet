@@ -15,11 +15,11 @@
 
                                 <div class="col">
 
-                                    <h2 class="text-center text-danger">Inscription</h2>
-
                                 </div>
 
                             </div>
+
+                                    <h2 class="text-center text-danger">Inscription</h2>
 
                             <hr />
 
@@ -66,7 +66,18 @@
 
                              <label>Adresse</label>
 
-                             <asp:TextBox ID="TextBox6" runat="server" CssClass="form-control"></asp:TextBox>
+                             <asp:TextBox ID="Adresse" runat="server" CssClass="form-control"></asp:TextBox>
+
+                         </div>
+
+                        </div>
+                             <div class="col-md-4 col-sm-4">
+
+                         <div class="from-group">
+
+                             <label>Date de Naissance</label>
+
+                             <asp:TextBox ID="DateNaiss" runat="server" CssClass="form-control"></asp:TextBox>
 
                          </div>
 
@@ -115,16 +126,9 @@
 
                           <%--  *********************************** Badge Completed ********************--%>
 
-
-
                             <div class="row">
-
-                              <div class="col-md-4">
-
+                             <div class="col-md-4">
                             <div class="form-group">
-
-                              
-
                                  <label>Cours</label>
 
                                    <div class="form-group">
@@ -147,8 +151,7 @@
                                  <div class="col">
 
                                    <center>
-
-                          
+                        
 
                                    <span class="badge badge-pill badge-info">Choix de Session </span>
 
@@ -199,11 +202,9 @@
 
                                 <div class="col-md-2 mx-auto">
 
-                                    <asp:Button ID="Button1" runat="server" Text="S'inscrire" CssClass="btn btn-outline-danger"/>
+                                    <asp:Button ID="Button1" OnClick="Button1_Click1" runat="server" Text="S'inscrire" CssClass="btn btn-outline-danger"/>
 
                                 </div>
-
-                             
 
                             </div>
 
