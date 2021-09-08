@@ -129,11 +129,7 @@
 
                                    <div class="form-group">
 
-
-
-                            <asp:DropDownList ID="ListCours" CssClass="form-control" runat="server">
-
-
+                            <asp:DropDownList ID="ListCours" AutoPostBack="True" onselectedindexchanged="CodeCours_SelectedIndexChanged" CssClass="form-control" runat="server">
 
                             </asp:DropDownList>
 
