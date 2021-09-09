@@ -168,31 +168,16 @@
                               <div class="col-md-4">
 
                             <div class="form-group">
-
-                              
-
+                           
                                  <label>Session</label>
-
                                    <div class="form-group">
-
-
-
                             <asp:DropDownList ID="ListSession" CssClass="form-control" runat="server">
-
-
-
                             </asp:DropDownList>
-
                         </div>
-
                             </div>
-
-                        </div>
-     
+                        </div>     
                     </div>
                             <%--****************************4th Row Completd*********************--%>
-
-                           
 
                           <%--  ******************************************Badge Complted*****************--%>
 
