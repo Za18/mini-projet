@@ -36,7 +36,7 @@ namespace montpetit
             int id = Convert.ToInt32(prof.DataKeys[e.RowIndex].Value.ToString());
             SqlCommand cmd = new SqlCommand("DeleteProf", con);
             cmd.CommandType = CommandType.StoredProcedure;
-            cmd.Parameters.AddWithValue("@Id", id);
+            cmd.Parameters.AddWithValue("@Id_prof", id);
             cmd.ExecuteNonQuery();
             con.Close();
             AfficheProf();
