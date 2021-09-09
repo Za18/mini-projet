@@ -5,12 +5,12 @@
     <div class="jumbotron">
         <h1>BIENVENUE</h1>
         <p class="lead">Nous offfrons les meilleures formations </p>
-             <p class="lead"> -50% pour les étudiants "Réseaux Linux et Windows" </p>
+            
         <p><a class="btn btn-primary btn-lg">En Apprendre plus &raquo;</a></p>
     </div>
 
     <div class="row">
-        <%--<div class="col-md-4">--%>
+        <div class="col-md-4">
             <h2>ASP.NET Débutant</h2>
             <p>
                 Cours d'initiation en ASP.NET
