@@ -1,6 +1,11 @@
 ﻿<%@ Page Title="Contact" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Contact.aspx.cs" Inherits="montpetit.Contact" %>
 
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
+    <style>
+      body {
+      background-color: #20B2AA;
+      }
+    </style>
     <h2><%: Title %>.</h2>
     <h3>Your contact page.</h3>
     <address>

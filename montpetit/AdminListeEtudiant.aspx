@@ -1,7 +1,11 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" MasterPageFile="~/Site.Master"Title="Administration" CodeBehind="AdminListeEtudiant.aspx.cs" Inherits="montpetit.AdminListeEtudiant" %>
 
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" Runat="Server">
-
+    <style>
+      body {
+      background-color: #AFEEEE;
+      }
+    </style>
 <div class="sidebar">
     <div class="wrapper"> 
     <a >

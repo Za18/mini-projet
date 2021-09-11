@@ -1,9 +1,13 @@
 ﻿<%@ Page Title="Home Page" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Default.aspx.cs" Inherits="montpetit._Default" %>
 
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
-
+    <style>
+      body {
+      background-color: #AFEEEE;
+      }
+    </style>
     <div class="jumbotron">
-        <h1>BIENVENUE</h1>
+        <h1><i> Bienvenue </i> </h1>
         <p class="lead">Nous offfrons les meilleures formations </p>
             
         <p><a class="btn btn-primary btn-lg">En Apprendre plus &raquo;</a></p>
@@ -34,3 +38,7 @@
     </div>
 
 </asp:Content>
+
+
+
+

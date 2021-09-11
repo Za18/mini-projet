@@ -1,7 +1,16 @@
 ﻿using System;
 using System.Configuration;
-using System.Data.SqlClient;
 using System.Data;
+using System.Data.SqlClient;
+using System.Drawing;
+using System.Linq;
+using System.Web;
+using System.Web.Security;
+using System.Web.UI;
+using System.Web.UI.HtmlControls;
+using System.Web.UI.WebControls;
+using System.Web.UI.WebControls.WebParts;
+using System.Xml.Linq;
 
 namespace montpetit
 {
@@ -18,28 +27,66 @@ namespace montpetit
         }
         protected void AfficheProf()
         {
-            SqlCommand command = new SqlCommand();
-            SqlDataAdapter adapter = new SqlDataAdapter();
-            DataSet ds = new DataSet();
-            command.Connection = con;
-            command.CommandType = CommandType.StoredProcedure;
-            command.CommandText = "GetProf";
-            adapter = new SqlDataAdapter(command);
-            adapter.Fill(ds);
-            con.Close();
-            prof.DataSource = ds.Tables[0];
-            prof.DataBind();
-        }
-        protected void prof_RowDeleting(object sender, GridViewDeleteEventArgs e)
-
-        {
-            int id = Convert.ToInt32(prof.DataKeys[e.RowIndex].Value.ToString());
-            SqlCommand cmd = new SqlCommand("DeleteProf", con);
-            cmd.CommandType = CommandType.StoredProcedure;
-            cmd.Parameters.AddWithValue("@Id_prof", id);
+            SqlCommand cmd = new SqlCommand("select * from Professeur", con);
             cmd.ExecuteNonQuery();
-            con.Close();
-            AfficheProf();
+            SqlDataAdapter da = new SqlDataAdapter();
+            da.SelectCommand = cmd;
+            DataSet ds = new DataSet();
+            da.Fill(ds, "Num_Prof");
+
+
+
+            GridView1.DataSourceID = null;
+            GridView1.DataSource = ds;
+            GridView1.DataBind();
         }
+
+        protected void GridView1_RowCommand(object sender, GridViewCommandEventArgs e)
+        {
+            if (e.CommandName == "Del")
+            {
+                int Id = Convert.ToInt32(e.CommandArgument);
+                string cmdText = "DELETE FROM professeur WHERE Num_Prof=@Num_Prof";
+                SqlCommand cmd = new SqlCommand(cmdText, con);
+                cmd.Parameters.AddWithValue("@Num_Prof", Id);
+                cmd.ExecuteNonQuery();
+
+                AfficheProf();
+            }
+
+            if (e.CommandName == "Edt")
+            {
+                GridViewRow row = (GridViewRow)(((LinkButton)e.CommandSource).NamingContainer);
+                TextBox name = (TextBox)GridView1.Rows[row.RowIndex].FindControl("txtNom");
+                TextBox firstName = (TextBox)GridView1.Rows[row.RowIndex].FindControl("txtPrenom");
+                TextBox tel = (TextBox)GridView1.Rows[row.RowIndex].FindControl("txtTel");
+                TextBox adr = (TextBox)GridView1.Rows[row.RowIndex].FindControl("txtAdr");
+                int Id = Convert.ToInt32(e.CommandArgument);
+                string cmdText = "UPDATE Professeur SET Nom_Prof=@name WHERE Num_Prof=105";
+                SqlCommand cmd = new SqlCommand(cmdText, con);
+
+
+                cmd.Parameters.AddWithValue("@name", name.Text);             
+                cmd.ExecuteNonQuery();
+
+                GridView1.EditIndex = -1;
+                this.AfficheProf();
+            }
+        }
+
+        protected void OnRowEditing(object sender, GridViewEditEventArgs e)
+        {
+            GridView1.EditIndex = e.NewEditIndex;
+            this.AfficheProf();
+        }
+
+
+
+        protected void OnCancel(object sender, EventArgs e)
+        {
+            GridView1.EditIndex = -1;
+            this.AfficheProf();
+        }
+
     }
 }
