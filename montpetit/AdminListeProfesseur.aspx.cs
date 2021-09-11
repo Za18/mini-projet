@@ -21,8 +21,10 @@ namespace montpetit
         protected void Page_Load(object sender, EventArgs e)
         {
             con.Open();
-            AfficheProf();
-
+            if (!Page.IsPostBack)
+            {
+                AfficheProf();
+            }
 
         }
         protected void AfficheProf()
@@ -33,8 +35,6 @@ namespace montpetit
             da.SelectCommand = cmd;
             DataSet ds = new DataSet();
             da.Fill(ds, "Num_Prof");
-
-
 
             GridView1.DataSourceID = null;
             GridView1.DataSource = ds;
@@ -62,11 +62,13 @@ namespace montpetit
                 TextBox tel = (TextBox)GridView1.Rows[row.RowIndex].FindControl("txtTel");
                 TextBox adr = (TextBox)GridView1.Rows[row.RowIndex].FindControl("txtAdr");
                 int Id = Convert.ToInt32(e.CommandArgument);
-                string cmdText = "UPDATE Professeur SET Nom_Prof=@name WHERE Num_Prof=105";
+                string cmdText = "UPDATE Professeur SET Nom_Prof=@name, Prenom_Prof=@firstName, NumTel_Prof=@tel, Adresse_Prof=@adr WHERE Num_Prof=@Num_Prof";
                 SqlCommand cmd = new SqlCommand(cmdText, con);
-
-
-                cmd.Parameters.AddWithValue("@name", name.Text);             
+                cmd.Parameters.AddWithValue("@Num_Prof", Id);
+                cmd.Parameters.AddWithValue("@name", name.Text);
+                cmd.Parameters.AddWithValue("@firstName", firstName.Text);
+                cmd.Parameters.AddWithValue("@tel", tel.Text);
+                cmd.Parameters.AddWithValue("@adr", adr.Text);             
                 cmd.ExecuteNonQuery();
 
                 GridView1.EditIndex = -1;

@@ -70,13 +70,19 @@
 
 
                         <asp:TemplateField>
-                        <ItemTemplate>
-                            <asp:LinkButton Text="Edit" runat="server" CommandName="Edit" />
-                        </ItemTemplate>
-                        <EditItemTemplate>
-                            <asp:LinkButton  commandname='Edt' text='Edit' commandargument='<%#Eval("Num_Prof") %>' runat="server"/>
-                            <asp:LinkButton Text="Cancel" runat="server" OnClick="OnCancel" />
-                        </EditItemTemplate>
+                            <ItemTemplate>
+                                <asp:LinkButton Text="Edit" runat="server" CommandName="Edit" />
+                            </ItemTemplate>
+                            <EditItemTemplate>
+                                <asp:LinkButton  commandname='Edt' text='Edit' commandargument='<%#Eval("Num_Prof") %>' runat="server"/>
+                                <asp:LinkButton Text="Cancel" runat="server" OnClick="OnCancel" />
+                            </EditItemTemplate>
+                        </asp:TemplateField>
+                        
+                        <asp:TemplateField>
+                            <ItemTemplate>
+                                <asp:LinkButton commandname='Del' text="Delete" commandargument='<%#Eval("Num_Prof") %>' runat="server"/>
+                            </ItemTemplate>
                         </asp:TemplateField>
                      </Columns>
 </asp:GridView>
